@@ -27,7 +27,7 @@ Solution in the solution branch.
 2. Add express to the local project using `npm`. Use the `save` option so that NPM automatically adds express to your dependencies in `package.json`.
 
   ```bash
-  npm install express --save
+  npm install express 
   ```
 
   Notice that a new folder called `node_modules` was created. Open it up and you'll see that there is an `express` folder. `node_modules` is where the dependencies in `package.json` are downloaded to.  If you look at `package.json` again, you'll see express has been added as a dependency for this project.
@@ -94,6 +94,12 @@ Solution in the solution branch.
 1. Let's get this working with our index page now.  In your browser, open `index.html` and then open the javascript console.  You should see 'Sanity Check: JS is working!'  Try running the following AJAX request in the JavaScript console:
 
   ```js
+  
+  const handleSuccess = json =>  console.log(json);
+
+  const handleError = (xhr, status, errorThrown) => console.log('uh oh');
+
+  
   $.ajax({
      method: 'GET',
      url: 'http://localhost:3000/api/albums',
@@ -101,9 +107,6 @@ Solution in the solution branch.
      error: handleError
    });
 
-   const handleSuccess = json =>  console.log(json);
-
-   const handleError = (xhr, status, errorThrown) => console.log('uh oh');
 
   ```
   > Note: you must be on a page with jQuery in order to use .ajax in the browser console!  Fortunately, the included index.js does have jQuery.
@@ -130,7 +133,7 @@ At this point, `server.js` and our client-side files (`index.html`, `app.js`, an
 
   ```
   ├── server.js  // your server code
-  ├── package.json    // project info and dependencies; changed by npm init or npm install --save somePackage
+  ├── package.json    // project info and dependencies; changed by npm init or npm install somePackage
   ├── public  // i.e. client-side
   │   ├── images  // images to serve to client
   │   ├── scripts  // or js
